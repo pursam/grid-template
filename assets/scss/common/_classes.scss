@@ -4,13 +4,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5em 1em;
-  min-width: 250px;
+
   height: 60px;
-  background-color: rgba($color-light, 0.1);
-  border: 2px solid $color-light;
+  padding: 0.5em 1em;
+
+  transition: background-color 0.5s;
+  letter-spacing: 0.1em;
 
   font-size: 1.125rem;
-  letter-spacing: 0.1em;
-  color: $color-light;
+
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+  }
+
+  &--light {
+    min-width: 250px;
+    background-color: rgba($color-light, 0.1);
+    border: 2px solid $color-light;
+  }
+
+  &--primary {
+    min-width: 350px;
+    background-color: rgba($color-primary, 0.8);
+    border: 2px solid $color-primary;
+  }
 }
