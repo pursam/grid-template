@@ -119,4 +119,3 @@ task('scss', series(scss));
 task('dev', series(scssDev));
 task('cs', series(createStructure));
 task('watch', watchFiles);
-task('watchDev', watchDevFiles);

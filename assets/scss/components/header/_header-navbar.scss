@@ -5,24 +5,95 @@
   flex-grow: 1;
 
   &__btn {
-    display: none;
+    width: 30px;
+    height: 22.5px;
+    position: relative;
+    margin: 25px 0 25px auto;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    @include md-min {
+      display: none;
+    }
+
+    &-row {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: $color-light;
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 9px;
+      }
+
+      &:nth-child(3) {
+        top: 18px;
+      }
+    }
+
+    &--active span {
+      &:nth-child(1) {
+        top: 9px;
+        transform: rotate(135deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        left: -30px;
+      }
+
+      &:nth-child(3) {
+        top: 9px;
+        transform: rotate(-135deg);
+      }
+    }
   }
 
   &__list {
-    display: grid;
-    justify-content: end;
-    @include unlist(0 -20px 0 0);
-    grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
+    @include md-min {
+      display: grid;
+      justify-content: end;
+      grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
+      @include unlist(0 -20px 0 0);
+    }
+    @include md {
+      display: none;
+      @include unlist;
+      background-color: rgba($color-gray-dark, 0.95);
+      position: absolute;
+      right: $gap;
+      top: 100%;
+      text-align: right;
+    }
   }
 
   &__item {
     margin: $gap $gap-sm;
+    @include md {
+      margin: $gap $gap-sm;
+    }
   }
 
   &__link {
     display: block;
 
-    padding: $gap $gap-sm;
+    @include md-min {
+      padding: $gap $gap-sm;
+    }
+    @include md {
+      padding: $gap-sm $gap;
+    }
 
     transition: color 0.5s;
     letter-spacing: 0.09em;

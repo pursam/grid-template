@@ -1,17 +1,17 @@
 @use "../presets/" as *;
+@use "../mixins/" as *;
 
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  height: 60px;
   padding: 0.5em 1em;
 
   transition: background-color 0.5s;
   letter-spacing: 0.1em;
 
-  font-size: 1.125rem;
+  border: 2px solid $color-light;
 
   &:hover,
   &:focus {
@@ -19,14 +19,35 @@
   }
 
   &--light {
-    min-width: 250px;
     background-color: rgba($color-light, 0.1);
-    border: 2px solid $color-light;
+
+    @include lg-min {
+      min-width: 250px;
+      height: 60px;
+      font-size: 1.125rem;
+    }
+    @include lg-md {
+      min-width: 200px;
+      height: 50px;
+    }
+    @include md {
+      min-width: 170px;
+      height: 50px;
+    }
   }
 
   &--primary {
-    min-width: 350px;
-    background-color: rgba($color-primary, 0.8);
+    height: 60px;
+    font-size: 1.125rem;
+
+    @include sm-min {
+      min-width: 350px;
+    }
+    @include sm {
+      width: 100%;
+    }
+
     border: 2px solid $color-primary;
+    background-color: rgba($color-primary, 0.8);
   }
 }
