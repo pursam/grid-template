@@ -1,8 +1,56 @@
 @use "../presets/" as *;
+@use "mixins-media" as *;
 
 %container {
   max-width: $ul;
   padding-right: $gap;
   padding-left: $gap;
   margin: 0 auto;
+}
+
+%grids {
+  @include lg-min {
+    padding-top: $gap-x5;
+    padding-bottom: $gap-x5;
+  }
+  @include lg-md {
+    padding-top: $gap-x4;
+    padding-bottom: $gap-x4;
+  }
+  @include md {
+    padding-top: $gap-x3;
+    padding-bottom: $gap-x3;
+  }
+}
+
+%btn-container {
+  @include sm-min {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn--primary {
+    @include sm-min {
+      min-width: 350px;
+    }
+    @include sm {
+      width: 100%;
+    }
+  }
+}
+
+%header {
+  margin: 0 0 3rem 0;
+
+  @include lg-min {
+    font-size: 2.5rem;
+    letter-spacing: 0.25rem;
+    line-height: 3rem;
+    color: $color-primary;
+    font-family: $font-header;
+  }
+
+  @include lg-md {
+    font-size: 1.875rem;
+  }
 }
