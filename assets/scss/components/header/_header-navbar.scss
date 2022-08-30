@@ -2,13 +2,14 @@
 @use "../../mixins/" as *;
 
 .header-navbar {
-  flex-grow: 1;
+  display: grid;
+  align-items: center;
 
   &__btn {
     width: 30px;
     height: 22.5px;
     position: relative;
-    margin: 25px 0 25px auto;
+    margin: auto 0 auto auto;
     transform: rotate(0deg);
     transition: 0.5s ease-in-out;
     cursor: pointer;
